@@ -1,0 +1,39 @@
+$primary-color: #dae1ec;
+$secondary-color: #f8f8f8;
+$background-color-hover:#00CCFF;
+$background-color-th : #3F51B5;
+
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+#tasks {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tasks td, #tasks th {
+  border: 1px solid $secondary-color;
+  padding: 8px;
+}
+
+#tasks tr:nth-child(even){background-color: $secondary-color;}
+
+#tasks tr:hover {background-color: $background-color-hover}
+
+#tasks th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: $background-color-th;
+  color: $secondary-color;
+}
+.primary-icon {
+  color: $background-color-th;
+  text-align: center;
+}
+.page-link{
+  cursor: pointer;
+}

@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1">
+            <span class="material-icons primary-icon">
+                filter_list
+            </span>
+        </div>
+        <div class="col-sm-9">
+            <form>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Search">
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-sm">
+            <button mat-raised-button color="primary"><span class="material-icons">
+                    add_circle
+                </span>Add Task</button>
+        </div>
+    </div>
+    <div class="row">
+        <table id="tasks">
+            <tr>
+                <th>#</th>
+                <th>ID.</th>
+                <th>Task</th>
+                <th>Completed?</th>
+                <th><span class="material-icons">
+                        more_horiz
+                    </span>
+                </th>
+            </tr>
+            <tr *ngFor="let task of tasks">
+                <td>{{task.userId}}</td>
+                <td>{{task.id}}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.completed}}</td>
+                <td class="primary-icon">
+                    <span class="material-icons">
+                        create
+                    </span>
+                    <span class="material-icons">
+                        delete
+                    </span>
+                    <span class="material-icons">
+                        more_horiz
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <nav>
+            <ul class="pagination mt-2">
+                <li class="page-item">
+                    <a class="page-link" (click)="previous(tasks[0].id)"><</a>
+                </li>
+                <div *ngFor="let p of paginator">
+                    <li class="page-item" [ngClass]="{'active':(p-1)*10+1==tasks[0].id}">
+                        <a class="page-link" (click)="paginate(p)">{{p}}</a>
+                    </li>
+                </div>
+                <li class="page-item">
+                    <a class="page-link" (click)="next(tasks[0].id)">></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
